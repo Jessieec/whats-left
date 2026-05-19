@@ -1,6 +1,5 @@
 # Whats Left
-
-## What is it?
+### Overview
 Whats Left is an AI-powered cooking assistant designed for students and people living alone who often have limited ingredients, limited kitchen tools, limited time, and limited mental energy for deciding what to cook.
 
 It helps users turn available fridge ingredients into meal ideas with simple cooking instructions.
