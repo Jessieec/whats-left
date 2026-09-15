@@ -40,7 +40,7 @@ export default function IngredientInput({ ingredients, onAdd, onRemove }: Props)
         onKeyDown={handleKeyDown}
         onBlur={commit}
         placeholder="eggs, rice, soy sauce…"
-        className="mt-2 w-full rounded-lg border border-zinc-300 px-3 py-2 outline-none focus:border-zinc-900"
+        className="mt-2 w-full rounded-lg border border-zinc-300 px-3 py-2 outline-none focus:border-zinc-900 dark:border-zinc-700 dark:focus:border-zinc-400"
       />
 
       {ingredients.length > 0 && (
@@ -50,10 +50,10 @@ export default function IngredientInput({ ingredients, onAdd, onRemove }: Props)
               <button
                 type="button"
                 onClick={() => onRemove(item)}
-                className="rounded-full bg-zinc-100 px-3 py-1 text-sm hover:bg-zinc-200"
+                className="rounded-full bg-zinc-100 px-3 py-1 text-sm text-zinc-900 hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-700"
               >
                 {item}
-                <span aria-hidden="true" className="ml-1.5 text-zinc-400">×</span>
+                <span aria-hidden="true" className="ml-1.5 text-zinc-500 dark:text-zinc-400">×</span>
                 <span className="sr-only">Remove {item}</span>
               </button>
             </li>
