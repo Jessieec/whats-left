@@ -4,7 +4,7 @@
 
 **What's Left** is an AI-powered cooking platform designed for students and people living independently who often have limited ingredients, kitchen tools, time, and energy to decide what to cook.
 
-The platform helps users turn ingredients they already have into realistic meal ideas. Users can enter available ingredients and cooking preferences, receive meal recommendations from the cooking assistant, select a recipe, and interact with the assistant for step-by-step instructions and other cooking questions.
+The platform helps users turn ingredients they already have into realistic meal ideas. Users can enter available ingredients and cooking preferences, receive meal recommendations from the cooking assistant, select a recipe, and interact with the assistant for step by step instructions and other cooking questions.
 
 Apart from recipe generation, What's Left is designed as a lightweight cooking community where users can save recipes, keep a personal cooking history, share photos of meals they have made, and interact with other users' cooking posts.
 
