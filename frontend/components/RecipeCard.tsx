@@ -8,7 +8,7 @@ const DIFFICULTY_STYLES: Record<Recipe["difficulty"], string> = {
 
 export default function RecipeCard({ recipe }: { recipe: Recipe }) {
   return (
-    <article className="rounded-xl border border-zinc-200 p-5 dark:border-zinc-800">
+    <article className="rounded-xl border border-border bg-surface p-5">
       <div className="flex items-start justify-between gap-3">
         <h3 className="font-semibold">{recipe.title}</h3>
         <span
@@ -20,22 +20,22 @@ export default function RecipeCard({ recipe }: { recipe: Recipe }) {
         </span>
       </div>
 
-      <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+      <p className="mt-2 text-sm text-muted">
         {recipe.description}
       </p>
 
-      <p className="mt-3 text-sm text-zinc-500 dark:text-zinc-400">
+      <p className="mt-3 text-sm text-muted">
         {recipe.minutes} min
       </p>
 
       <dl className="mt-4 space-y-1 text-sm">
         <div>
-          <dt className="inline text-zinc-500 dark:text-zinc-400">You have: </dt>
+          <dt className="inline text-muted">You have: </dt>
           <dd className="inline">{recipe.ingredients_used.join(", ")}</dd>
         </div>
         {recipe.ingredients_missing.length > 0 && (
           <div>
-            <dt className="inline text-zinc-500 dark:text-zinc-400">
+            <dt className="inline text-muted">
               You&apos;ll need:{" "}
             </dt>
             <dd className="inline">{recipe.ingredients_missing.join(", ")}</dd>

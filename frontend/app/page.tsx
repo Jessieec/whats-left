@@ -42,7 +42,7 @@ export default function Home() {
   return (
     <main className="mx-auto max-w-3xl p-8">
       <h1 className="text-3xl font-semibold">What&apos;s Left</h1>
-      <p className="mt-1 text-zinc-600">
+      <p className="mt-1 text-muted">
         Tell me what you have and I&apos;ll tell you what to make.
       </p>
 
@@ -57,7 +57,7 @@ export default function Home() {
           type="button"
           onClick={handleGenerate}
           disabled={ingredients.length === 0 || isLoading}
-          className="mt-4 rounded-lg bg-zinc-900 px-5 py-2.5 text-white transition-colors hover:bg-zinc-700 disabled:cursor-not-allowed disabled:opacity-40"
+          className="mt-4 rounded-lg bg-accent px-5 py-2.5 font-medium text-accent-foreground transition-colors hover:bg-accent-hover disabled:cursor-not-allowed disabled:opacity-40"
         >
           {isLoading ? "Finding recipes…" : "Generate"}
         </button>
@@ -65,7 +65,7 @@ export default function Home() {
 
       <section className="mt-10">
         {isLoading && (
-          <p className="text-zinc-500">Looking through your ingredients…</p>
+          <p className="text-muted">Looking through your ingredients…</p>
         )}
 
         {!isLoading && error && (
@@ -83,7 +83,7 @@ export default function Home() {
         )}
 
         {!isLoading && !error && hasGenerated && recipes.length === 0 && (
-          <p className="text-zinc-500">
+          <p className="text-muted">
             No matches yet. Try adding another ingredient.
           </p>
         )}

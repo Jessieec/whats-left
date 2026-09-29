@@ -1,26 +1,42 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* single light theme — the kitchen illustration needs dark text on light */
+  color-scheme: light;
+
+  --background: #fdf6cd; /* sampled from the illustration's wall */
+  --foreground: #1c1917;
+  --surface: #ffffff; /* cards sit above the illustration */
+  --border: #ece3bc;
+  --muted: #6f665c;
+  --accent: #15803d; /* herb green */
+  --accent-hover: #166534;
+  --accent-foreground: #ffffff;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-border: var(--border);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-foreground: var(--accent-foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
-  background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
+
+  /* the kitchen sits along the bottom edge; the wall color fills everything
+     above it, so the image's top edge seams invisibly into the page */
+  background-color: var(--background);
+  background-image: url("/background.PNG");
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: 100% auto;
+  background-attachment: fixed;
 }
