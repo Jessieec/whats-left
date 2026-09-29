@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import IngredientInput from "@/components/IngredientInput";
+import RecipeCard from "@/components/RecipeCard";
 import { generateRecipes } from "@/lib/api";
 import type { Recipe } from "@/lib/types";
 
@@ -10,6 +11,7 @@ export default function Home() {
   const [recipes, setRecipes] = useState<Recipe[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [hasGenerated, setHasGenerated] = useState(false);
 
   function addIngredient(raw: string) {
     const name = raw.trim().toLowerCase();
@@ -28,6 +30,7 @@ export default function Home() {
     try {
       const results = await generateRecipes(ingredients);
       setRecipes(results);
+      setHasGenerated(true);
     } catch (e) {
       setError(e instanceof Error ? e.message : "Something went wrong.");
       setRecipes([]);
@@ -60,11 +63,29 @@ export default function Home() {
         </button>
       </div>
 
-      {/* temporary*/}
-      <section className="mt-8">
-        {error && <p className="text-sm text-red-600">{error}</p>}
-        {!error && recipes.length > 0 && (
-          <p className="text-zinc-600">{recipes.length} recipes found</p>
+      <section className="mt-10">
+        {isLoading && (
+          <p className="text-zinc-500">Looking through your ingredients…</p>
+        )}
+
+        {!isLoading && error && (
+          <p className="rounded-lg bg-red-50 p-4 text-sm text-red-700 dark:bg-red-950 dark:text-red-200">
+            {error}
+          </p>
+        )}
+
+        {!isLoading && !error && recipes.length > 0 && (
+          <div className="grid gap-4 sm:grid-cols-2">
+            {recipes.map((recipe) => (
+              <RecipeCard key={recipe.id} recipe={recipe} />
+            ))}
+          </div>
+        )}
+
+        {!isLoading && !error && hasGenerated && recipes.length === 0 && (
+          <p className="text-zinc-500">
+            No matches yet. Try adding another ingredient.
+          </p>
         )}
       </section>
     </main>
